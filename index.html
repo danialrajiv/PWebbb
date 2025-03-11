@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAHAHA Corp</title>
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --dark: #2d3436;
+            --light: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Sticky Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Animated Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3));
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: zoom 20s infinite alternate;
+        }
+
+        @keyframes zoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        /* Ticket & Digital Section */
+        .services {
+            padding: 5rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-box {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        /* Talent Section */
+        .talents {
+            padding: 5rem 5%;
+            background: var(--light);
+        }
+
+        .talent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .talent-card {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .talent-card:hover {
+            transform: scale(1.05);
+        }
+
+        .talent-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--primary);
+        }
+
+        /* Merchandise Section */
+        .merchandise {
+            padding: 5rem 5%;
+            background: var(--dark);
+            color: white;
+        }
+
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .marketplace-card {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 150px;
+            transition: all 0.3s ease;
+        }
+
+        .marketplace-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .marketplace-img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block !important;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="logo">HAHAHA Corp</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#event">Event</a>
+            <a href="#talent">Talent</a>
+            <a href="#merchandise">Merch</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="menu-toggle">☰</div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29tZWR5fGVufDB8fDB8fHww" alt="Background" class="hero-bg">
+        <div class="hero-content">
+            <h1 style="font-size: 4rem; margin-bottom: 1rem;">Welcome to HAHAHA Corp</h1>
+            <p style="font-size: 1.5rem;">Creating Unforgettable Experiences</p>
+        </div>
+    </section>
+
+    <!-- Talent Section -->
+    <section class="talents" id="talent">
+        <h2 style="text-align: center; font-size: 2.5rem;">Our Talents</h2>
+        <div class="talent-grid">
+            <div class="talent-card">
+                <img src="Ge Pamungkas.jpg" alt="Talent 1" class="talent-img">
+                <h3>Ge Pamungkas</h3>
+            </div>
+            <!-- Repeat for other talents -->
+        <div class="talent-grid">
+            <div class="talent-card">
+                <img src="Hojlund.jpg" alt="Talent 2" class="talent-img">
+                <h3>Højlund</h3>
+        </div>
+    </section>
+
+    <!-- Ticket & Digital Section -->
+    <section class="services" id="event">
+        <div class="service-box">
+            <img src="event_ticket.JPG" alt="Ticket" class="service-img">
+            <div class="service-content">
+                <h2>Event Tickets</h2>
+                <p>Get tickets for our upcoming events</p>
+            </div>
+        </div>
+        <div class="service-box">
+            <img src="digital_download.JPG" alt="Digital" class="service-img">
+            <div class="service-content">
+                <h2>Digital Downloads</h2>
+                <p>Exclusive digital content available now</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Merchandise Section -->
+    <section class="merchandise" id="merchandise">
+        <h2 style="text-align: center; font-size: 2.5rem;">Buy Our Exclusive Merchandise</h2>
+        <div class="marketplace-grid">
+            <div class="marketplace-card">
+                <img src="Agak_laen.jpg" alt="Product" class="marketplace-img">
+                <h4>Limited Edition T-Shirt</h4>
+            </div>
+            <!-- Repeat for other products -->
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.service-box, .talent-card, .marketplace-card').forEach((el) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(50px)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
